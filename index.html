@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Piadas</title>
+</head>
+<body>
+    <div>
+        <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Pergunta</th>
+                <th>Resposta</th>
+              </tr>
+            </thead>
+            <tbody id="corpoTabelaPiadas"></tbody>
+          </table>
+    </div>
+
+    <div class="clearfix">
+        <div class="hint-text">Mostrando Resultados</div>
+        <ul class="pagination">
+          <button class="page-item" id="btChamaApi">
+            <a href="#" class="page-link">Chamar API</a>
+          </button>
+        </ul>
+      </div>
+</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="chamaApi.js"></script>
+</html>

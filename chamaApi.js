@@ -1,35 +1,37 @@
-const corpoPiadas = document.getElementById('corpoPiadas')
-
 function testeApi() {
+    axios.get('https://v2.jokeapi.dev/joke/Any').then(response => {
 
-    axios.get('https://v2.jokeapi.dev/joke/Any')
-    .then(response => {
-        console.log(response.data.results);
-        
-        const piadas = response.data.results;
-        preencherPiada(piadas);
+        const piada = response.data;
+
+        preencherPiada(piada);
     })
-    .catch(error => {
-        console.log('Deu erro, se vira ai: ', error);
-    });
+}
+
+function apiGato(){
+    axios.get('https://api.thecatapi.com/v1/images/search').then(response =>{
+        const gato = response;
+        preencherImg(gato);
+    })
 }
 
 const botaoChamarAPI = document.getElementById('btChamaApi');
 
 botaoChamarAPI.addEventListener('click', () => {
     testeApi();
+    apiGato();
 });
 
 function preencherPiada(piada){
-    const linha = document.createElement('tr');
+    const resposta = document.getElementById("resposta");
 
-    const pergunta = document.createElement('td');
-    pergunta.textContent = piada.setup;
-    linha.appendChild(pergunta);
+    const pergunta = document.getElementById("pergunta");
 
-    const resposta = document.createElement('td');
-    resposta.textContent = piada.delivery;
-    linha.appendChild(resposta);
+    pergunta.innerHTML = piada.setup;
+    resposta.innerHTML = piada.delivery;
+}
 
-    corpoTabelaPiada.appendChild(linha);
+function preencherImg(gato){
+    const imgato = document.getElementById("imgGato").src = gato.data[0].url;
+
+    console.log(gato.data[0].url);
 }
